@@ -10,7 +10,7 @@ class GildedRose
     @items << Item.new("Aged Brie", 2, 0)
     @items << Item.new("Sulfuras, Hand of Ragnaros", 0, 80)
     @items << Item.new("Backstage passes to a TAFKAL80ETC concert", 15, 20)
-    @items << Item.new("Conjured Cake", 3, 6)
+    @items << Item.new("Conjured Cake", 3, 10)
   end
 
   def update_quality()
@@ -18,7 +18,7 @@ class GildedRose
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
         if item.quality > 0
           if item.name != "Sulfuras, Hand of Ragnaros"
-            item.quality = item.quality - 1 
+            item.quality = item.quality - 1
           end
         end
       else

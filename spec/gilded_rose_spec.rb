@@ -158,6 +158,33 @@ describe GildedRose do
       end
     end
 
+    describe "Conjured Cake" do
+      context 'sell-in > 0 && quality > 0' do
+        it "reduces sell-in by 1" do
+          subject.update_quality
+          expect(subject.items[4].sell_in).to eq 2
+        end
+        it "reduces quality by 2" do
+          subject.update_quality
+          expect(subject.items[4].quality).to eq 8
+        end
+      end
+
+      context 'sell-in < 0 && quality > 0' do
+        before do
+         3.times { subject.update_quality }
+        end
+        it "reduces sell-in by 1" do
+          subject.update_quality
+          expect(subject.items[4].sell_in).to eq -1
+        end
+        it "increases quality by 3" do
+          subject.update_quality
+          expect(subject.items[4].quality).to eq 0
+        end
+      end
+    end
+
 
   end
 
