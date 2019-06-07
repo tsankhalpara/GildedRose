@@ -178,7 +178,7 @@ describe GildedRose do
           subject.update_quality
           expect(subject.items[4].sell_in).to eq -1
         end
-        it "increases quality by 3" do
+        it "reduces quality by 4" do
           subject.update_quality
           expect(subject.items[4].quality).to eq 0
         end
