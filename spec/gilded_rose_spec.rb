@@ -10,4 +10,10 @@ describe GildedRose do
     end
   end
 
+    it "quality is not below 0" do
+      items = [Item.new("foo", 0, -2)]
+      GildedRose.new(items).update_quality()
+      expect{items[0].quality}.to raise_error
+    end
+
 end
