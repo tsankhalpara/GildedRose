@@ -90,6 +90,19 @@ describe GildedRose do
       end
     end
 
+    describe "Sulfuras, Hand of Ragnaros" do
+      context 'sell-in == 0 && quality == 80' do
+        it "sell-in stays the same" do
+          subject.update_quality
+          expect(subject.items[2].sell_in).to eq 0
+        end
+        it "quality stays the same" do
+          subject.update_quality
+          expect(subject.items[2].quality).to eq 80
+        end
+      end
+    end
+
 
 
   end
