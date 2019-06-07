@@ -103,6 +103,60 @@ describe GildedRose do
       end
     end
 
+    describe "Backstage passes to a TAFKAL80ETC concert" do
+      context 'sell-in > 10 && quality > 0' do
+        it "reduces sell-in by 1" do
+          subject.update_quality
+          expect(subject.items[3].sell_in).to eq 14
+        end
+        it "increases quality by 1" do
+          subject.update_quality
+          expect(subject.items[3].quality).to eq 21
+        end
+      end
+
+      context '5 < sell-in <= 10 && quality > 0' do
+        before do
+         5.times { subject.update_quality }
+        end
+        it "reduces sell-in by 1" do
+          subject.update_quality
+          expect(subject.items[3].sell_in).to eq 9
+        end
+        it "increases quality by 2" do
+          subject.update_quality
+          expect(subject.items[3].quality).to eq 27
+        end
+      end
+
+      context '0 < sell-in < 5 && quality > 0' do
+        before do
+         10.times { subject.update_quality }
+        end
+        it "reduces sell-in by 1" do
+          subject.update_quality
+          expect(subject.items[3].sell_in).to eq 4
+        end
+        it "increases quality by 3" do
+          subject.update_quality
+          expect(subject.items[3].quality).to eq 38
+        end
+      end
+
+      context 'sell-in < 0 && quality == 0' do
+        before do
+         15.times { subject.update_quality }
+        end
+        it "reduces sell-in by 1" do
+          subject.update_quality
+          expect(subject.items[3].sell_in).to eq -1
+        end
+        it "increases quality by 3" do
+          subject.update_quality
+          expect(subject.items[3].quality).to eq 0
+        end
+      end
+    end
 
 
   end
