@@ -9,9 +9,15 @@ describe GildedRose do
     end
 
     describe "Elixir of Youth" do
-      it "reduces the sell-in by 1" do
-        subject.update_quality
-        expect(subject.items[0].sell_in).to eq 4
+      context 'sell-in > 0 && quality > 0' do
+        it "reduces the sell-in by 1" do
+          subject.update_quality
+          expect(subject.items[0].sell_in).to eq 4
+        end
+        it "reduces the quality by 1" do
+          subject.update_quality
+          expect(subject.items[0].quality).to eq 19
+        end
       end
     end
 

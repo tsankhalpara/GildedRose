@@ -6,7 +6,7 @@ class GildedRose
 
   def initialize()
     @items = []
-    @items << Item.new("Elixir of Youth", 5, 7)
+    @items << Item.new("Elixir of Youth", 5, 20)
     @items << Item.new("Aged Brie", 2, 0)
     @items << Item.new("Sulfuras, Hand of Ragnaros", 0, 80)
     @items << Item.new("Backstage passes to a TAFKAL80ETC concert", 15, 20)
