@@ -265,6 +265,14 @@
         null,
         null,
         null,
+        null,
+        1,
+        642,
+        null,
+        null,
+        1,
+        294,
+        null,
         null
       ],
       "/Users/Tara/Projects/week10/GildedRose/lib/item.rb": [
@@ -296,6 +304,6 @@
         null
       ]
     },
-    "timestamp": 1559918207
+    "timestamp": 1559919124
   }
 }

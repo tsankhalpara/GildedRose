@@ -18,27 +18,27 @@ class GildedRose
       if @items[i].name != "Aged Brie" and @items[i].name != "Backstage passes to a TAFKAL80ETC concert"
         if @items[i].quality > 0
           if @items[i].name != "Sulfuras, Hand of Ragnaros" and @items[i].name != "Conjured Cake"
-            @items[i].quality = @items[i].quality - 1
+            decrease_quality(@items[i],1)
           end
           if @items[i].name == "Conjured Cake"
-            @items[i].quality = @items[i].quality - 2
+            decrease_quality(@items[i],2)
             if @items[i].sell_in < 1
-              @items[i].quality = @items[i].quality - 2
+              decrease_quality(@items[i],2)
             end
           end
         end
       else
         if @items[i].quality < 50
-          @items[i].quality = @items[i].quality + 1
+          increase_quality(@items[i],1)
           if @items[i].name == "Backstage passes to a TAFKAL80ETC concert"
             if @items[i].sell_in < 11
               if @items[i].quality < 50
-                @items[i].quality = @items[i].quality + 1
+                increase_quality(@items[i],1)
               end
             end
             if @items[i].sell_in < 6
               if @items[i].quality < 50
-                @items[i].quality = @items[i].quality + 1
+                increase_quality(@items[i],1)
               end
             end
           end
@@ -52,7 +52,7 @@ class GildedRose
           if @items[i].name != "Backstage passes to a TAFKAL80ETC concert"
             if @items[i].quality > 0
               if @items[i].name != "Sulfuras, Hand of Ragnaros"
-                @items[i].quality = @items[i].quality - 1
+                decrease_quality(@items[i],1)
               end
             end
           else
@@ -60,10 +60,18 @@ class GildedRose
           end
         else
           if @items[i].quality < 50
-            @items[i].quality = @items[i].quality + 1
+            increase_quality(@items[i],1)
           end
         end
       end
     end
+  end
+
+  def increase_quality(item, amount)
+    item.quality += amount
+  end
+
+  def decrease_quality(item, amount)
+    item.quality -= amount
   end
 end
